@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pruebacss.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+    }
+    ul{
+        list-style-type: none;
+        padding: 0;
+        overflow: visible;
+        background-color: #444;
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+    li{
+        float: left;
+    }
+    li a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+    }
+    li a:hover:not(.activo){
+        background-color: cornflowerblue;
+    }
+    .activo{
+        background-color: gray;
+    }
+    .derecha{
+        float: right;
+    }
+    li.dropdown{
+        display: inline-block;
+    }
+    .dropdown-content{
+        display: none;
+        position: absolute;
+        background-color: violet;
+    }
+    .dropdown-content a{
+        display: block;
+    }
+    .dropdown:hover .dropdown-content{
+        display: block;
+    }
+    @media screen and (max-width: 500px){
+        ul{
+            position: relative;
+        }
+        ul li{
+            float: none;
+            display: flex;
+            flex-direction: column;
+        }
+        li.dropdown{
+            display: contents;
+        }
+        .dropdown:hover .dropdown-content{
+            display: contents;
+        }
+        li.dropdown-content a{
+            display: flex;
+            justify-content: right;
+        }
+        li a:hover{
+            background-color: cornflowerblue;
+        }
+        .activo{
+            background-color: #444;
+        }
+        .derecha{
+            float: none;
+        }
+    }
+</style>
+
+
+<body>
+    <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Quienes Somos</a></li>
+        <li class="dropdown">
+            <a  href="#">Proyectos
+                <span style="color: red; font-size: 0.8em;">
+                    &#9660
+                </span>
+            </a>
+        <div class="dropdown-content">
+            <a href="#">Proyecto 1</a>
+            <a href="#">Proyecto 2</a>
+            <a href="#">Ver mas Proyectos</a>
+        </div>
+        </li>
+        <li class="derecha"><a class="activo" href="#">Contacto</a></li>
+    </ul>
+</body>
+</html>
